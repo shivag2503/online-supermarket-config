@@ -1,1 +1,13 @@
+server:
+  port: 8080
 
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # URL of the Discovery Service (Eureka Server)
+    register-with-eureka: true # Register API Gateway with Eureka
+    fetch-registry: true # Fetch service registry from Eureka

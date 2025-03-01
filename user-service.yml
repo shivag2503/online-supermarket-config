@@ -1,18 +1,18 @@
-# Database Configuration
+# MySQL Database Configuration from Vault
 datasource:
-  url: jdbc:sqlserver://localhost:1433;databaseName=supermarket_db
-  username: your_username
-  password: your_password
-  driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  url: jdbc:mysql://localhost:3306/onlinesupermarket_user_db  # MySQL Database URL
+  username: ${vault.secret.application.db-credentials.username}  # Fetch username from Vault
+  password: ${vault.secret.application.db-credentials.password}  # Fetch password from Vault
+  driver-class-name: com.mysql.cj.jdbc.Driver   # MySQL Driver for Spring Boot
 
 jpa:
   hibernate:
-    ddl-auto: update
-  show-sql: true
+    ddl-auto: update  # Automatically update schema
+  show-sql: true      # Show SQL queries in logs
   properties:
     hibernate:
-      dialect: org.hibernate.dialect.SQLServer2012Dialect
+      dialect: org.hibernate.dialect.MySQL8Dialect  # MySQL dialect for Hibernate
 
 # Server Configuration
 server:
-  port: 8081
+  port: 8081  # Port for the user service

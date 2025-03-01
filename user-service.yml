@@ -1,9 +1,9 @@
 # MySQL Database Configuration from Vault
 datasource:
   url: jdbc:mysql://127.0.0.1:3306/onlinesupermarket_user_db  # MySQL URL
-  username: root # Fetch username dynamically from Vault
-  password: shivam2503  # Fetch password dynamically from Vault
-  driver-class-name: org.hibernate.dialect.MySQLDialect  # MySQL driver class
+  username: ${vault.database.creds.readonly.username}  # Fetch username dynamically from Vault
+  password: ${vault.database.creds.readonly.password}
+  driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL driver class
   hikari:
     maximum-pool-size: 10  # Connection pool size (optional)
 
@@ -13,7 +13,7 @@ jpa:
   show-sql: true      # Show SQL queries in logs
   properties:
     hibernate:
-      dialect: org.hibernate.dialect.MySQL8Dialect  # MySQL dialect for Hibernate
+      dialect: org.hibernate.dialect.MySQLDialect  # MySQL dialect for Hibernate
 
 # Server Configuration
 server:

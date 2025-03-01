@@ -2,8 +2,8 @@
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/onlinesupermarket_user_db  # MySQL URL
-    username: ${spring.datasource.username}  # Fetch username dynamically from Vault
-    password: ${spring.datasource.password}
+    username: ${dbusername}  # Fetch username dynamically from Vault
+    password: ${dbpassword}
     driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL driver class
     hikari:
       maximum-pool-size: 10  # Connection pool size (optional)

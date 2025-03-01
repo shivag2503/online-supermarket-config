@@ -1,8 +1,8 @@
 # MySQL Database Configuration from Vault
 spring:
   url: jdbc:mysql://127.0.0.1:3306/onlinesupermarket_user_db
-    username: ${spring.cloud.vault.kv.default-db-creds.username} # Fetch from Vault KV
-    password: ${spring.cloud.vault.kv.default-db-creds.password} # Fetch from Vault KV
+    username: "${spring.cloud.vault.kv.default-db-creds.username}" # Fetch from Vault KV
+    password: "${spring.cloud.vault.kv.default-db-creds.password}" # Fetch from Vault KV
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10
